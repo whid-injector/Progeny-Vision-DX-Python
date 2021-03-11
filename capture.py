@@ -7,7 +7,7 @@ import time
 import sys
 
 outfile = open(sys.argv[1], 'w')
-hostIP = b"192.168.68.5"
+hostIP = b"192.168.68.3"
 sensorIP = "192.168.68.56"
 
 #data = ""

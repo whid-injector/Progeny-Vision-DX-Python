@@ -23,7 +23,7 @@ sizeX = 1262
 sizeY = 1640
 
 sensorIP = "192.168.68.56"
-hostIP   = "192.168.68.5"
+hostIP   = "192.168.68.3"
 
 def plot_img_and_hist(image, axes, bins=256):
     # Plot an image along with its histogram and cumulative histogram.
