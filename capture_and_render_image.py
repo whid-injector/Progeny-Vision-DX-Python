@@ -116,7 +116,7 @@ def run_program():
     #data = s.recv(1024)
 
     #print('Received', repr(data))
-    def exit_gracefully(signum, frame):
+def exit_gracefully(signum, frame):
     # restore the original signal handler as otherwise evil things will happen
     # in raw_input when CTRL+C is pressed, and our signal handler is not re-entrant
     global cmd
