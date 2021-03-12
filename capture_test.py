@@ -47,10 +47,10 @@ def receive(recv):
 
 
 
-port = 104 # The same port as used by the server
-cmd = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-cmd.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-cmd.bind(('0.0.0.0',50452))
+# port = 104 # The same port as used by the server
+# cmd = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# cmd.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+# cmd.bind(('0.0.0.0',50452))
 
 port = 104
 recv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -63,6 +63,9 @@ otterThread.start()
 def run_program():
         #while True:
         print("Sending...")
+        cmd = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        cmd.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        cmd.bind(('0.0.0.0',50452))
         cmd.connect((sensorIP, port))
         ##cmd.send(b"ID=000094DA367B\x0d\x0aIP=192.168.68.1\x0d\x0aPORT=50444\x0d\x0aCMD=STATUS\x0d\x0a")
         #cmd.sendall(b"ID=000094DA367B\x0d\x0aIP="+hostIP+b"\x0d\x0aPORT=50444\x0d\x0aCMD=CAPTURE\x0d\x0aMODE=0\x0d\x0a")
@@ -83,7 +86,7 @@ def exit_gracefully(signum, frame):
     cmd2 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     cmd2.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     cmd2.bind(('0.0.0.0',50452))
-    cmd2.connect((host, port))
+    cmd2.connect((sensorIP, port))
     #cmd2.sendall(b"ID=000094DA367B\x0d\x0aIP="+hostIP+b"\x0d\x0aPORT=50444\x0d\x0aCMD=CLOSE\x0d\x0a")
     cmd2.sendall(b"ID=0000AA08B046\x0d\x0aIP="+hostIP+b"\x0d\x0aPORT=50444\x0d\x0aCMD=CLOSE\x0d\x0a")
     cmd2.shutdown(socket.SHUT_WR)
